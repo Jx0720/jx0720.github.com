@@ -133,12 +133,10 @@ module.exports = {
   ],
   devServer: {
     host: 'localhost',
+    disableHostCheck: true,
     port: devPort,
     inline: true,
     historyApiFallback: true, // respond to 404s with index.html
-    hot: true, // enable HMR on the server
-    proxy: {
-
-    }
+    hot: true // enable HMR on the server
   }
 }

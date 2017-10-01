@@ -16,3 +16,23 @@ export function fetch (child) {
     })
   }
 }
+
+export function formatTimesToAgo (time) {
+  const disTime = Date.now() / 1000 - Number(time)
+
+  if (disTime < 3600) return formatReturnTime(disTime / 60, 'minute')
+  else if (disTime < 86400) return formatReturnTime(disTime / 3600, 'hour')
+  else return formatReturnTime(disTime / 86400, 'day')
+}
+
+function formatReturnTime (time, label) {
+  const newTime = Math.floor(time)
+  return newTime > 1 ? `${newTime} ${label}s` : `${newTime} ${label}`
+}
+
+export function formatHost (url) {
+  const host = url.replace(/^https?:\/\//, '').replace(/\/.*$/, '')
+  const parts = host.split('.').slice(-3)
+  if (parts[0] === 'www') parts.shift()
+  return parts.join('.')
+}

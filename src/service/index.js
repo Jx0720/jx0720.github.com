@@ -4,6 +4,10 @@ export function fetchIdsByType (type) {
   return fetch(`${type}stories`)
 }
 
-export function fetchItem (id) {
+function fetchItem (id) {
   return fetch(`item/${id}`)
+}
+
+export function fetchItems (ids) {
+  return Promise.all(ids.map(id => fetchItem(id)))
 }

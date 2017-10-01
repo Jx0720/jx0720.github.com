@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux'
 import { routerReducer } from 'react-router-redux'
-import learnRedux from './learnRedux'
+import app from './app'
 
 const rootReducer = combineReducers({
   routing: routerReducer,
-  learnRedux
+  app
 })
 
 export default rootReducer

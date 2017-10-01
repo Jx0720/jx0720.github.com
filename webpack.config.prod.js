@@ -23,7 +23,7 @@ module.exports = {
   output: {
     filename: 'js/bundle.[hash].js',
     path: dirname + '/dist',
-    publicPath: '/' // necessary for HMR to know where to load the hot update chunks
+    publicPath: '/dist' // necessary for HMR to know where to load the hot update chunks
   },
   devtool: 'inline-source-map',
   externals: {
@@ -128,7 +128,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: dirname + '/src/index.html',
       hash: false,
-      filename: 'index.html',
+      filename: '../index.html',
       inject: 'body',
       minify: {
         collapseWhitespace: true
