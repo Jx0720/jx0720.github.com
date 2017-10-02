@@ -8,6 +8,7 @@ const Header = ({ menu, app: { activeItem, pageSize }, dispatch }) => {
   return (
     <div className='header'>
       <div className='header-items'>
+        <span className='header-items-logo'>HN</span>
         { renderMenuItems(menu, activeItem, pageSize, dispatch) }
       </div>
     </div>

@@ -36,3 +36,31 @@ export function formatHost (url) {
   if (parts[0] === 'www') parts.shift()
   return parts.join('.')
 }
+
+export function getElViewPos (el) {
+  const pos = { left: 0, top: 0 }
+  let newEl = el
+
+  while (newEl) {
+    pos.left += newEl.offsetLeft
+    pos.top += newEl.offsetTop
+    newEl = newEl.offsetParent
+  }
+
+  return pos
+}
+
+export function isViewVisible (el) {
+  const viewHeight = document.documentElement.clientHeight
+  const scrollTop = window.pageYOffset
+  const { top } = getElViewPos(el)
+  const realDis = scrollTop + viewHeight
+
+  if (top > realDis) return false
+  else return true
+}
+
+export function isMobile () {
+  const device = navigator.userAgent.match(/(iPhone|iPod|Android|ios)/i)
+  return !!(device && device.length > 0)
+}

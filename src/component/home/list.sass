@@ -1,10 +1,16 @@
 .list
+  position: relative
   background-color: #FFF
 
   .item
     position: relative
     border: 1px solid #eee
     padding: 20px 30px 20px 80px
+    font-size: .85em
+    color: #999
+
+    &:hover
+      background-color: #ecf6fd
 
     &-score
       position: absolute
@@ -13,4 +19,27 @@
       width: 80px
       text-align: center
       transform: translateY(-50%)
-      color: #ff6600
+      font-size: 1.4em
+      color: #1976d2
+
+    &-title
+      color: #212121
+      font-weight: bold
+      font-size: 1.1em
+
+  &-back-top
+    position: fixed
+    right: .3em
+    bottom: .6em
+    border-radius: 50%
+    width: 40px
+    height: 40px
+    color: #fff
+    background-color: #448aff
+    font-size: 1em
+    font-weight: 200
+    line-height: 40px
+    text-align: center
+    cursor: pointer
+    box-shadow: 0 3px 10px rgba(0,0,0,.23), 0 3px 10px rgba(0,0,0,.16)
+    opacity: 0.95

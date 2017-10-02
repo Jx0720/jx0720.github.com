@@ -1,5 +1,5 @@
 import {
-  UPDATE_ACTIVE_ITEM
+  UPDATE_ACTIVE_ITEM, LOAD_MORE_ITEMS
 } from 'action/app'
 
 const initialState = {
@@ -29,6 +29,16 @@ function app (state = initialState, action) {
           ...state.items,
           [activeItem]: ids
         }
+      }
+    case LOAD_MORE_ITEMS:
+      const { newItems } = action
+      return {
+        ...state,
+        curpage: ++state.curpage,
+        list: [
+          ...state.list,
+          ...newItems
+        ]
       }
     default:
       return state

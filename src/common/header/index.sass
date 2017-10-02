@@ -1,20 +1,36 @@
 .header
   position: fixed
   z-index: 999
-  left: 0;
-  top: 0;
+  left: 0
+  top: 0
   width: 100%
-  background-color: #ff6600;
+  background-color: #2196f3
 
   &-items
+    position: relative
     margin: 0 auto
-    padding: 14px 4px
+    padding: 16px 4px 16px 24px
     max-width: 800px
+
+    &-logo
+      display: inline-block
+      margin-right: 20px
+      border: 2px solid #fff
+      width: 30px
+      height: 30px
+      line-height: 30px
+      text-align: center
+      font-weight: bolder
+      color: #fff
 
     &-item
       display: inline-block
-      margin-right: 1.8em
-      color: #FFE0CC
+      margin-right: 1.1em
+      color: #bbdefb
+      cursor: pointer
 
       &-active
+        color: #FFF
+
+      &:hover
         color: #FFF

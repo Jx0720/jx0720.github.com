@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 
 import { syncTypeItems } from 'action/app'
 import Header from 'common/header'
+import Loading from 'common/loading'
 import List from './List'
 import './index.sass'
 
@@ -20,7 +21,7 @@ class Home extends Component {
     }
   }
 
-  componentWillMount () {
+  componentDidMount () {
     this.pageInitList()
   }
 
@@ -31,12 +32,20 @@ class Home extends Component {
 
   render () {
     const { types } = this.state
-    const { app: { list } } = this.props
+    const { app: { list, pageSize, activeItem, curpage, items }, dispatch } = this.props
     return (
       <div className='home'>
+        <Loading />
         <Header menu={types} />
         <div className='home-list'>
-          <List items={list} />
+          <List
+            data={list}
+            items={items}
+            pageSize={pageSize}
+            activeItem={activeItem}
+            curpage={curpage}
+            dispatch={dispatch}
+          />
         </div>
       </div>
     )

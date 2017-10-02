@@ -1,7 +1,14 @@
 import { fetch } from 'util'
+import api from 'config/api'
+
+// export function fetchIdsByType (type) {
+//   return fetch(`${type}stories`)
+// }
 
 export function fetchIdsByType (type) {
-  return fetch(`${type}stories`)
+  return api.cachedIds && api.cachedIds[type]
+    ? Promise.resolve(api.cachedIds[type])
+    : fetch(`${type}stories`)
 }
 
 function fetchItem (id) {

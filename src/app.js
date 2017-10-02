@@ -14,7 +14,7 @@ const historyType = syncHistoryWithStore(history, configStore)
 
 const Routers = () =>
   <Router history={historyType}>
-    <Route path='/' component={Home} />
+    <Route path='/*' component={Home} />
   </Router>
 
 const App = () => (
